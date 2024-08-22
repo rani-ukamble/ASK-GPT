@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemini GPT</title>
+    <title>ASK GPT</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -21,8 +21,8 @@
             padding: 29px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
             width: 100%;
-            max-width: 1200px;
-            height: 500px; /* Fixed height */
+            max-width: 1300px;
+            height: 490px; /* Fixed height */
             text-align: center;
             color: #000000;
             overflow-y: auto; /* Add scrollbar if content overflows */
@@ -42,16 +42,18 @@
         form {
             display: flex;
             align-items: center;
-            position: relative;
+            flex-wrap: wrap; /* Allow wrapping of elements */
+            gap: 10px; /* Add space between elements */
+            justify-content: center;
         }
 
         textarea {
             flex: 1;
+            min-width: 0; /* Allow flexbox to handle width */
             height: 50px; /* Slightly increased height */
             padding: 12px;
             border: none;
             border-radius: 10px;
-            margin-right: 10px; /* Space between textarea and button */
             font-size: 17px;
             resize: none;
             background: #f0f0f0;
@@ -64,11 +66,13 @@
             background: linear-gradient(to right, #00aaff, #ff007f);
             color: #ffffff;
             border: none;
-            padding: 12px 24px; /* Slightly increased padding */
+            padding: 12px 24px; /* Same padding for consistent height */
             border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
+            min-width: 120px; /* Ensure a minimum width */
+            box-sizing: border-box; /* Ensure padding is included in width */
         }
 
         button:hover {
@@ -87,6 +91,8 @@
             border-radius: 10px;
             max-height: 300px;
             overflow-y: auto;
+            width: 100%;
+            box-sizing: border-box; /* Ensure padding is included in width */
         }
 
         /* Scrollbar styles */
@@ -104,31 +110,20 @@
         }
 
         @media (max-width: 768px) {
-            .container {
-                width: 100%;
-            }
-
             form {
                 flex-direction: column;
                 align-items: stretch;
             }
 
-            textarea {
-                width: 100%;
-                margin-right: 0;
-                margin-bottom: 10px;
+            textarea, button, #responseContainer {
+                width: 100%; /* Ensure full width for all elements */
+                box-sizing: border-box; /* Ensure padding is included in width */
             }
 
             button {
-                width: 100%;
-                padding: 12px 0;
-            }
-
-            #responseContainer {
-                width: 100%;
+                margin-top: 10px;
             }
         }
-        
     </style>
 </head>
 <body>
