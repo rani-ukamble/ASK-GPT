@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini GPT</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #00aaff, #ff007f);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 29px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 1200px;
+            height: 500px; /* Fixed height */
+            text-align: center;
+            color: #000000;
+            overflow-y: auto; /* Add scrollbar if content overflows */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 30px;
+            background: linear-gradient(to right, #00aaff, #ff007f); /* Same gradient as the button */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        textarea {
+            flex: 1;
+            height: 50px; /* Slightly increased height */
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            margin-right: 10px; /* Space between textarea and button */
+            font-size: 17px;
+            resize: none;
+            background: #f0f0f0;
+            color: #000000;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+
+        button {
+            background: linear-gradient(to right, #00aaff, #ff007f);
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px; /* Slightly increased padding */
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #00aaff, #ff007f);
+            opacity: 0.8;
+        }
+
+        #responseContainer {
+            margin-top: 20px;
+            padding: 20px;
+            border-top: 1px solid #ccc;
+            text-align: left;
+            font-size: 17px;
+            color: #000000;
+            background: #f0f0f0;
+            border-radius: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        /* Scrollbar styles */
+        #responseContainer::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        #responseContainer::-webkit-scrollbar-thumb {
+            background-color: #00aaff;
+            border-radius: 10px;
+        }
+
+        #responseContainer::-webkit-scrollbar-track {
+            background: #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+            }
+
+            form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            textarea {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            button {
+                width: 100%;
+                padding: 12px 0;
+            }
+
+            #responseContainer {
+                width: 100%;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ASK GPT</h1>
+        <form method="POST">
+            <textarea name="prompt" placeholder="Enter your prompt here..."></textarea>
+            <button type="submit">Generate</button>
+        </form>
+        <div id="responseContainer">
+            {{ response|safe }}
+        </div>
+    </div>
+</body>
+</html>
