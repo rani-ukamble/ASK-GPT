@@ -4,7 +4,7 @@ import google.generativeai as genai
 app = Flask(__name__)
 
 # Configure the API key
-genai.configure(api_key="AIzaSyD_NP9TmFcYRtxwkc7SGfQsqHO3S-IX6mc")
+genai.configure(api_key="")
 
 # Define the generation configuration
 generation_config = {
