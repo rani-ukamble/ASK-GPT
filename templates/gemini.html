@@ -22,10 +22,11 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
             width: 100%;
             max-width: 1300px;
-            height: 490px; /* Fixed height */
+            height: 490px; /* Fixed height for larger screens */
             text-align: center;
             color: #000000;
             overflow-y: auto; /* Add scrollbar if content overflows */
+            margin: 0; /* Remove margin */
         }
 
         h1 {
@@ -110,6 +111,12 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                height: 100vh; /* Full viewport height for small screens */
+                padding: 20px; /* Adjust padding for small screens */
+                margin: 0; /* Remove margin */
+            }
+
             form {
                 flex-direction: column;
                 align-items: stretch;
